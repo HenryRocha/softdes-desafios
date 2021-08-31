@@ -16,9 +16,7 @@ def add_user(user, pwd, user_type):
     conn = sqlite3.connect("quiz.db")
     cursor = conn.cursor()
     cursor.execute(
-        'Insert into USER(user,pass,type) values("{0}","{1}","{2}");'.format(
-            user, pwd, user_type
-        )
+        'Insert into USER(user,pass,type) values("{0}","{1}","{2}");'.format(user, pwd, user_type)
     )
     conn.commit()
     conn.close()
