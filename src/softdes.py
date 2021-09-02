@@ -42,7 +42,7 @@ def lambda_handler(event, _context):
                 return "Nome da função inválido. Usar 'def desafio{0}(...)'".format(ndes)
 
             if not_equals(
-                eval("desafio{0}(*arg)".format(ndes)), resp[index]  # pylint: disable=eval-used
+                eval("desafio{0}(*_arg)".format(ndes)), resp[index]  # pylint: disable=eval-used
             ):
                 test.append(diag[index])
     except Exception:  # pylint: disable=broad-except
