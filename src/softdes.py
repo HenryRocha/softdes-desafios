@@ -96,8 +96,9 @@ def get_user_quiz(userid, quizid):
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     cursor.execute(
-        "SELECT sent, answer, result from USERQUIZ"
-        + "where userid = '{0}' and quizid = {1} order by sent desc".format(userid, quizid)
+        "SELECT sent, answer, result FROM USERQUIZ "
+        + "WHERE userid = ? AND quizid = ? ORDER BY sent DESC",
+        (userid, quizid),
     )
     info = list(cursor.fetchall())
     conn.close()
@@ -125,14 +126,14 @@ def get_quiz(id_, user):
     if user in ("admin", "fabioja"):
         cursor.execute(
             "SELECT id, release, expire, problem, tests, results, diagnosis, numb "
-            + "FROM QUIZ where id = {0}".format(id_)
+            + "FROM QUIZ where id = ?",
+            (id_,),
         )
     else:
         cursor.execute(
             "SELECT id, release, expire, problem, tests, results, diagnosis, numb "
-            + "FROM QUIZ where id = {0} and release < '{1}'".format(
-                id_, datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            )
+            + "FROM QUIZ where id = ? and release < '?'",
+            (id_, datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
         )
     info = list(cursor.fetchall())
     conn.close()
@@ -154,8 +155,7 @@ def get_info(user):
 
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
-    cursor.execute("SELECT pass, type from USER where user = '{0}'".format(user))
-    print("SELECT pass, type from USER where user = '{0}'".format(user))
+    cursor.execute("SELECT pass, type from USER where user = ?;", (user,))
     info = [reg[0] for reg in cursor.fetchall()]
     conn.close()
     if len(info) == 0:
