@@ -37,7 +37,7 @@ def lambda_handler(event, _context):
         exec(code, locals())  # pylint: disable=exec-used
 
         test = []
-        for index, _ in enumerate(args):
+        for index, _arg in enumerate(args):
             if not "desafio{0}".format(ndes) in locals():
                 return "Nome da função inválido. Usar 'def desafio{0}(...)'".format(ndes)
 
