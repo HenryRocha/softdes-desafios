@@ -1,17 +1,10 @@
-# Welcome to MkDocs
+# Servidor de desafios
+<br>
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Sobre
+Este servidor hospeda um sistema de desafios dedicado para os alunos do primeiro semestre de engenharia no Insper. Através desta aplicação é possível criar novos desafios, com opção de data de entrega, para que possam ser resolvidos e enviados, podendo verificar se a resposta está correto ou se há algum erro.
 
-## Commands
+## Exemplo de visualização
+![index](./index.jpeg)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Acima há um exemplo de desafio criado na plataforma com prazo e com envios que tiveram êxito e falha.

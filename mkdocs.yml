@@ -1,1 +1,6 @@
-site_name: My Docs
+site_name: Servidor de Desafios
+nav:
+  - Home: index.md
+  - Aluno: aluno.md
+  - Professor: professor.md
+  - Configuração: config.md
