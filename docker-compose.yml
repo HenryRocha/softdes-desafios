@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  softdesdesafios:
+    image: softdesdesafios
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ./users.csv:/app/src/users.csv
+      # Persist all data in /app/src between restarts
+      - softdes_data:/app/src/
+
+volumes:
+  softdes_data:
