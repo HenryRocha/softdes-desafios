@@ -1,0 +1,4 @@
+upload/
+.vscode/
+*.db
+*.csv
