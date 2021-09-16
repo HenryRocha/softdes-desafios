@@ -132,7 +132,7 @@ def get_quiz(id_, user):
     else:
         cursor.execute(
             "SELECT id, release, expire, problem, tests, results, diagnosis, numb "
-            + "FROM QUIZ where id = ? and release < '?'",
+            + "FROM QUIZ where id = ? and release < ?",
             (id_, datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
         )
     info = list(cursor.fetchall())
@@ -323,5 +323,11 @@ def hash_pw(password):
     return hashlib.md5(password.encode()).hexdigest()
 
 
-if __name__ == "__main__":
+def main():
+    """Iniciar servidor"""
+
     app.run(debug=True, host="0.0.0.0", port=80)
+
+
+if __name__ == "__main__":
+    main()
