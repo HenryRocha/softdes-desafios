@@ -2,3 +2,4 @@ upload/
 .vscode/
 *.db
 *.csv
+*geckodriver*

@@ -10,6 +10,8 @@ Flask-HTTPAuth = "*"
 [dev-packages]
 black = "==21.9b0"
 pylint = "*"
+selenium = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.8"
