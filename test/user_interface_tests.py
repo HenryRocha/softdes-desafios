@@ -1,5 +1,6 @@
 import os
 import unittest
+from pathlib import Path
 from tempfile import mkstemp
 
 from selenium import webdriver
@@ -14,7 +15,8 @@ class InterfaceTest(unittest.TestCase):
     login_url: str = f"http://{user}:{pwd}@{base_url}"
 
     def setUp(self):
-        self.driver = webdriver.Firefox(executable_path="./geckodriver")
+        executable_path: Path = Path(__file__).parent / "geckodriver"
+        self.driver = webdriver.Firefox(executable_path=executable_path)
         super().setUp()
 
     def test_login_success(self):

@@ -1,6 +1,5 @@
 from typing import Dict
-
-import softdes
+from src.softdes import lambda_handler
 
 
 def test_lambda_handler_invalid_function_name():
@@ -8,7 +7,7 @@ def test_lambda_handler_invalid_function_name():
 
     event: Dict = {"ndes": "0", "code": test_code, "args": ["0"], "resp": "0", "diag": "0"}
 
-    errors: str = softdes.lambda_handler(event, "")
+    errors: str = lambda_handler(event, "")
     assert errors == "Nome da função inválido. Usar 'def desafio0(...)'"
 
 
@@ -17,7 +16,7 @@ def test_lambda_handler_correct_function_correct_answer():
 
     event: Dict = {"ndes": "1", "code": test_code, "args": ["5"], "resp": [10], "diag": ["3"]}
 
-    errors: str = softdes.lambda_handler(event, "")
+    errors: str = lambda_handler(event, "")
     assert errors == ""
 
 
@@ -32,5 +31,5 @@ def test_lambda_handler_correct_function_wrong_answer():
         "diag": ["Answer should be 11."],
     }
 
-    errors: str = softdes.lambda_handler(event, "")
+    errors: str = lambda_handler(event, "")
     assert errors == "Answer should be 11."

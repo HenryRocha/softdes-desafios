@@ -3,3 +3,4 @@ upload/
 *.db
 *.csv
 *geckodriver*
+*pytest_cache*
